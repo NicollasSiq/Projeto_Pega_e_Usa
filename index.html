@@ -1,215 +1,140 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Pega e Usa: aluguel de roupas fácil, rápido e prático. Veja nosso estoque e adicione novas peças!">
-  <title>Pega e Usa</title>
-  <link rel="icon" href="Imagens/favicon.png" type="image/png">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Noto+Sans+JP:wght@700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Sistema de Locadora</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Estilos customizados -->
+    <link href="css/styles.css" rel="stylesheet">
 </head>
-<body>
-  <a href="#topo" class="skip-link"></a>
-  <header id="topo" class="header" aria-label="Cabeçalho principal">
-    <div class="header-content">
-      <div class="logo-area">
-        <img src="Imagens/WhatsApp Image 2025-05-31 at 22.11.54.jpeg" alt="Logo do Pega e Usa, um cabide estilizado" class="logo" width="48" height="48" />
-        <div>
-          <h1 class="titulo-jp">Pega e Usa</h1>
-          <p class="slogan">Alugue roupas com praticidade e estilo</p>
+<body class="bg-light">
+    <style>
+        body.bg-light, .bg-light {
+            background-color: #d8cfc4 !important; /* bege escuro */
+        }
+        .card {
+            background-color: #f5efe6;
+            border-color: #b8a98f;
+        }
+        .card-header.bg-primary {
+            background-color: #b8a98f !important; /* bege escuro */
+            color: #fff !important;
+        }
+        .btn-primary {
+            background-color: #b8a98f;
+            border-color: #b8a98f;
+        }
+        .btn-primary:hover, .btn-primary:focus {
+            background-color: #a3927a;
+            border-color: #a3927a;
+        }
+        .btn-outline-secondary {
+            color: #b8a98f;
+            border-color: #b8a98f;
+        }
+        .btn-outline-secondary:hover, .btn-outline-secondary:focus {
+            background-color: #b8a98f;
+            color: #fff;
+            border-color: #b8a98f;
+        }
+    </style>
+   <div class="bg-light">
+    <div class="login-container">
+        <div class="card shadow">
+            <!-- Cabeçalho do card de login -->
+             <div class="card-header bg-primary text-white">
+                <h4 class="mb-0"><i class="bi bi-person-lock me-2"></i>Login</h4>
+             </div>
+            <!-- Corpo do card de login -->
+             <div class="card-body">
+                <!-- Espaço para mensagem de erro (vazio por padrão) -->
+                <div id="errorMessage" class="alert alert-danger d-none"> Mensagem de erro
+                     aparecerá aqui</div>
+                <!-- Formulário de login -->
+                 <form id="loginForm" method="post" action="index.html">
+                    <!-- Campo de Usuário -->
+                     <div class="mb-3">
+                        <label for="username" class="form-label">
+                            <i class="bi bi-person me-1"></i> Usuário
+                        </label>
+                        <input type="text" id="username" name="username" 
+                        class="form-control">
+                     </div>
+                    
+                     <!-- Campo de senha -->
+                      <div class="mb-3">
+                        <label for="password" class="form-label">
+                            <i class="bi bi-key me-1"></i> Senha
+                        </label>
+                        <input type="password" id="password" name="password" 
+                        class="form-control">
+                      </div>
+                      <!-- Botão de envio -->
+                      <button type="submit" class="btn btn-primary w-100">
+                      <form id="loginForm" method="post" action="cadastro.html">
+
+                        <i class="bi bi-box-arrow-in-right me-1"></i> Entrar
+                       </button>
+                 </form>
+                <!-- Seção de cadastro de novo usuário -->
+                <div class="mt-4">
+                    <h5><i class="bi bi-person-plus me-2"></i> Novo por aqui?</h5>
+                    <p>Crie sua conta para acessar o sistema:</p>
+                    <a href="conta.html" class="btn btn-outline-secondary w-100">
+                        <i class="bi bi-pencil-square me-1"></i> Cadastrar Usuário
+                    </a>
+                </div>
+                 
+
+             <!-- Rodapé do card de login -->
+              <div class="card-footer text-center">
+                <small class="text-muted">Sistema Aluguel de Roupa &copy;  <span ]
+                    id="ano-atual"> 2025
+                </span></small>
+              </div>
         </div>
-      </div>
-      <nav class="navbar" aria-label="Menu principal">
-        <button class="nav-toggle" aria-label="Abrir menu" aria-controls="nav-links" aria-expanded="false">
-          <span class="hamburger"></span>
-        </button>
-        <ul class="nav-links" id="nav-links">
-          <li><a href="#carrossel-top10">Top 10</a></li>
-          <li><a href="#estoque">Estoque</a></li>
-          <li><a href="#contato">Contato</a></li>
-          <li>
-           <a href="https://wa.me/SEUNUMEROAQUI" class="whatsapp-header" target="_blank" rel="noopener" aria-label="Fale no WhatsApp">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="Ícone do WhatsApp" width="22" height="22" />
-            <span>WhatsApp</span>
-          </a>
-          </li>
-          <li>
-            <button id="toggle-theme" aria-label="Alternar modo escuro/claro">
-              <span id="theme-icon" aria-hidden="true">🌙</span>
-            </button>
-          </li>
-        </ul>
-      </nav>
     </div>
-  </header>
+   </div>
 
-  <!-- Sidebar para adicionar roupa -->
-  <button id="abrir-sidebar" class="abrir-sidebar-btn" aria-label="Abrir adicionar roupa">→</button>
-  <aside id="sidebar-adicionar" class="sidebar" aria-label="Adicionar roupa">
-    <button id="fechar-sidebar" aria-label="Fechar">←</button>
-    <form id="form-adicionar-roupa">
-      <h3>Adicionar Roupa</h3>
-      <input type="text" name="nome" placeholder="Nome da roupa" required>
-      <input type="text" name="tamanho" placeholder="Tamanho" required>
-      <input type="number" name="quantidade" placeholder="Quantidade" min="1" required>
-      <input type="file" name="foto" accept="image/*" required>
-      <select name="tipo" required>
-        <option value="">Tipo de roupa</option>
-        <option value="camiseta">Camiseta</option>
-        <option value="blusa">Blusa</option>
-        <option value="calca">Calça</option>
-        <option value="tenis">Tênis</option>
-        <option value="terno">Terno</option>
-      </select>
-      <input type="number" name="valor" placeholder="Valor do aluguel por dia" min="1" required>
-      <button type="submit">Enviar</button>
-    </form>
-  </aside>
+    
+    
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-  <main id="main-content" tabindex="-1">
-    <!-- Carrossel Top 10 Produtos Mais Alugados -->
-    <section id="carrossel-top10" class="carrossel" aria-label="Top 10 produtos mais alugados">
-      <h2>Top 10 Produtos Mais Alugados</h2>
-      <div class="carrossel-inner">
-        <!-- Slides dos produtos mais alugados (exemplo) -->
-        <!-- As imagens e nomes são só exemplos, troque pelas suas depois -->
-        <div class="carrossel-slide ativo">
-          <img src="Imagens/produto1.jpg" alt="Produto 1">
-          <h3>Produto 1</h3>
-        </div>
-        <div class="carrossel-slide">
-          <img src="Imagens/produto2.jpg" alt="Produto 2">
-          <h3>Produto 2</h3>
-        </div>
-        <div class="carrossel-slide">
-          <img src="Imagens/produto3.jpg" alt="Produto 3">
-          <h3>Produto 3</h3>
-        </div>
-        <div class="carrossel-slide">
-          <img src="Imagens/produto4.jpg" alt="Produto 4">
-          <h3>Produto 4</h3>
-        </div>
-        <div class="carrossel-slide">
-          <img src="Imagens/produto5.jpg" alt="Produto 5">
-          <h3>Produto 5</h3>
-        </div>
-        <div class="carrossel-slide">
-          <img src="Imagens/produto6.jpg" alt="Produto 6">
-          <h3>Produto 6</h3>
-        </div>
-        <div class="carrossel-slide">
-          <img src="Imagens/produto7.jpg" alt="Produto 7">
-          <h3>Produto 7</h3>
-        </div>
-        <div class="carrossel-slide">
-          <img src="Imagens/produto8.jpg" alt="Produto 8">
-          <h3>Produto 8</h3>
-        </div>
-        <div class="carrossel-slide">
-          <img src="Imagens/produto9.jpg" alt="Produto 9">
-          <h3>Produto 9</h3>
-        </div>
-        <div class="carrossel-slide">
-          <img src="Imagens/produto10.jpg" alt="Produto 10">
-          <h3>Produto 10</h3>
-        </div>
-      </div>
-    </section>
+    <!-- Script JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Scripts customizados -->
+    <script src="js/scripts.js"></script>
 
-    <!-- Estoque de roupas -->
-    <section id="estoque" class="estoque-section" aria-labelledby="estoque-titulo">
-      <h2 id="estoque-titulo">Estoque</h2>
-      <div class="filtros-estoque" role="tablist" aria-label="Filtrar estoque">
-        <button class="filtro-btn ativo" data-categoria="geral" role="tab" aria-selected="true">Geral</button>
-        <button class="filtro-btn" data-categoria="terno" role="tab" aria-selected="false">Ternos</button>
-        <button class="filtro-btn" data-categoria="camiseta" role="tab" aria-selected="false">Camisetas</button>
-        <button class="filtro-btn" data-categoria="calca" role="tab" aria-selected="false">Calças</button>
-        <button class="filtro-btn" data-categoria="blusa" role="tab" aria-selected="false">Blusas</button>
-        <button class="filtro-btn" data-categoria="tenis" role="tab" aria-selected="false">Tênis</button>
-      </div>
-      <div class="estoque" aria-live="polite">
-        <!-- Os itens serão adicionados dinamicamente pelo JS -->
-      </div>
-      <h3>Roupas Alugadas</h3>
-      <div class="alugadas" aria-live="polite">
-        <!-- Itens alugados aparecem aqui dinamicamente -->
-      </div>
-    </section>
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+    const loginForm = document.getElementById('loginForm');
+    const errorMessage = document.getElementById('errorMessage');
 
-    <section id="contato" class="contato-section" aria-labelledby="contato-titulo">
-      <h2 id="contato-titulo">Localização &amp; Contato</h2>
-      <div class="contato-info-wrapper">
-        <div class="contato-info">
-          <div>
-            <p><strong>Endereço:</strong> Avenida Exemplo, 123 – Centro, Sua Cidade, SP 00000-000</p><br>
-            <p><strong>Telefone:</strong> <a href="tel:+5511999999999">(11) 99999-9999</a></p><br>
-            <p><strong>E-mail:</strong> <a href="mailto:contato@pegaeusa.com">contato@pegaeusa.com</a></p><br>
-            <p><strong>Horário:</strong> Segunda a Sábado, das 9h às 18h</p>
-          </div>
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3656.294808502569!2d-46.50534048927356!3d-23.593757778689024!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce67cd8504cb55%3A0x2fa2efa8b64460ed!2sSushi%20Imperador!5e0!3m2!1spt-BR!2sbr!4v1748754872663!5m2!1spt-BR!2sbr"
-            style="border:0;"
-            allowfullscreen=""
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
-            title="Mapa Pega e Usa"
-            aria-label="Mapa Pega e Usa">
-          </iframe>
-        </div>
-      </div>
-      <div class="redes">
-        <a href="https://wa.me/SEUNUMEROAQUI" target="_blank" aria-label="WhatsApp">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" width="40" height="40" />
-        </a>
-        <a href="https://instagram.com/pegaeusa" target="_blank" aria-label="Instagram">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" width="40" height="40" />
-        </a>
-      </div>
-    </section>
-    <button id="voltar-topo" aria-label="Voltar ao topo" title="Voltar ao topo">↑</button>
-  </main>
+    loginForm.addEventListener('submit', function (e) {
+        e.preventDefault(); // Impede envio padrão
 
-  <!-- Modal Sobre Nós -->
-  <div id="sobre-nos-modal" class="modal">
-    <div class="modal-content">
-      <span class="close-modal" id="close-sobre-nos">&times;</span>
-      <h2>Sobre a Pega e Usa</h2>
-      <p>
-        A Pega e Usa nasceu para facilitar o aluguel de roupas para todas as ocasiões. Nossa missão é democratizar o acesso à moda, oferecendo praticidade, economia e sustentabilidade. Aqui, você encontra peças de qualidade, com variedade de estilos e tamanhos, prontas para serem usadas e devolvidas com facilidade.
-      </p>
-      <ul>
-        <li>👚 Variedade de roupas para todos os estilos</li>
-        <li>👟 Tênis, camisetas, ternos, calças e muito mais</li>
-        <li>🔄 Processo de aluguel e devolução simples</li>
-        <li>💙 Atendimento dedicado</li>
-      </ul>
-    </div>
-  </div>
+        const username = document.getElementById('username').value.trim();
+        const password = document.getElementById('password').value.trim();
 
-  <!-- Footer atualizado -->
-  <footer role="contentinfo">
-    <div class="footer-content">
-      <div class="footer-logo">
-        <span>Pega e Usa</span>
-      </div>
-      <div class="footer-links">
-        <a href="#carrossel-top10">Top 10</a>
-        <a href="#estoque">Estoque</a>
-        <a href="#contato">Contato</a>
-        <button id="sobre-nos-btn" class="sobre-nos-footer-btn">Sobre Nós</button>
-        <a href="https://wa.me/SEUNUMEROAQUI" target="_blank" aria-label="WhatsApp" class="whatsapp-footer">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" width="20" height="20" />
-          WhatsApp
-        </a>
-        <a href="https://instagram.com/pegaeusa" target="_blank" aria-label="Instagram">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" width="20" height="20" />
-          Instagram
-        </a>
-      </div>
-      <p>&copy; 2025 Pega e Usa. Criado por Felipe.</p>
-    </div>
-  </footer>
-  <script src="script.js"></script>
+        // Verifica login válido
+        if (
+            (username === 'admin' && password === 'admin123') ||
+            (username === 'usuario' && password === 'user123')
+        ) {
+            window.location.href = 'cadastro.html'; // Redireciona se válido
+        } else {
+            // Exibe mensagem de erro
+            errorMessage.textContent = 'Usuário ou senha inválidos.';
+            errorMessage.classList.remove('d-none');
+        }
+    });
+});
+    </script>
 </body>
 </html>
