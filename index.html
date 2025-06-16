@@ -2,139 +2,137 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - Sistema de Locadora</title>
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Bootstrap Icons -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
-    <!-- Estilos customizados -->
-    <link href="css/styles.css" rel="stylesheet">
-</head>
-<body class="bg-light">
+    <title>Criar Conta - Aluguel de Roupas</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="style.css" rel="stylesheet">
+    <link rel="icon" href="Imagens/favicon.jpeg" type="image/png">
     <style>
-        body.bg-light, .bg-light {
-            background-color: #d8cfc4 !important; /* bege escuro */
-        }
-        .card {
-            background-color: #f5efe6;
-            border-color: #b8a98f;
-        }
-        .card-header.bg-primary {
-            background-color: #b8a98f !important; /* bege escuro */
-            color: #fff !important;
-        }
-        .btn-primary {
-            background-color: #b8a98f;
-            border-color: #b8a98f;
-        }
-        .btn-primary:hover, .btn-primary:focus {
-            background-color: #a3927a;
-            border-color: #a3927a;
-        }
-        .btn-outline-secondary {
-            color: #b8a98f;
-            border-color: #b8a98f;
-        }
-        .btn-outline-secondary:hover, .btn-outline-secondary:focus {
-            background-color: #b8a98f;
-            color: #fff;
-            border-color: #b8a98f;
-        }
+    :root {
+      --cor-bg: #f8f9fa;
+      --cor-card: #fff;
+      --cor-principal: #0d6efd;
+      --cor-destaque: #0b5ed7;
+      --cor-texto: #212529;
+    }
+    body { 
+        font-family: Arial, sans-serif; 
+        background: var(--cor-bg); 
+        display: flex; 
+        justify-content: center; 
+        align-items: center; 
+        height: 100vh; 
+    }
+    .container {
+        background: var(--cor-bg);
+        padding: 32px 24px;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        width: 100%;
+        max-width: 400px;
+    }
+    h2 {
+        text-align: center;
+        margin-bottom: 24px;
+    }
+    label {
+        display: block;
+        margin-bottom: 6px;
+        font-weight: bold;
+    }
+    input, select {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 16px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+    button {
+        width: 100%;
+        background: var(--cor-principal);
+        color: var(--cor-texto);
+        border: none;
+        padding: 12px;
+        border-radius: 4px;
+        font-size: 16px;
+        cursor: pointer;
+    }
+    button:hover {
+        background: var(--cor-destaque);
+    }
+    .login-link {
+        text-align: center;
+        margin-top: 16px;
+    }
+    .login-link a {
+        color: var(--cor-principal);
+        text-decoration: none;
+    }
     </style>
-   <div class="bg-light">
-    <div class="login-container">
-        <div class="card shadow">
-            <!-- Cabeçalho do card de login -->
-             <div class="card-header bg-primary text-white">
-                <h4 class="mb-0"><i class="bi bi-person-lock me-2"></i>Login</h4>
-             </div>
-            <!-- Corpo do card de login -->
-             <div class="card-body">
-                <!-- Espaço para mensagem de erro (vazio por padrão) -->
-                <div id="errorMessage" class="alert alert-danger d-none"> Mensagem de erro
-                     aparecerá aqui</div>
-                <!-- Formulário de login -->
-                 <form id="loginForm" method="post" action="index.html">
-                    <!-- Campo de Usuário -->
-                     <div class="mb-3">
-                        <label for="username" class="form-label">
-                            <i class="bi bi-person me-1"></i> Usuário
-                        </label>
-                        <input type="text" id="username" name="username" 
-                        class="form-control">
-                     </div>
-                    
-                     <!-- Campo de senha -->
-                      <div class="mb-3">
-                        <label for="password" class="form-label">
-                            <i class="bi bi-key me-1"></i> Senha
-                        </label>
-                        <input type="password" id="password" name="password" 
-                        class="form-control">
-                      </div>
-                      <!-- Botão de envio -->
-                      <button type="submit" class="btn btn-primary w-100">
-                      <form id="loginForm" method="post" action="cadastro.html">
+</head>
+<body>
+    <div class="container">
+        <h2>Criar Conta</h2>
+        <form action="PHP/cadastro.php" method="post">
+            <label for="nome">Nome Completo</label>
+            <input type="text" id="nome" name="nome" required autocomplete="name" aria-label="Nome Completo">
 
-                        <i class="bi bi-box-arrow-in-right me-1"></i> Entrar
-                       </button>
-                 </form>
-                <!-- Seção de cadastro de novo usuário -->
-                <div class="mt-4">
-                    <h5><i class="bi bi-person-plus me-2"></i> Novo por aqui?</h5>
-                    <p>Crie sua conta para acessar o sistema:</p>
-                    <a href="conta.html" class="btn btn-outline-secondary w-100">
-                        <i class="bi bi-pencil-square me-1"></i> Cadastrar Usuário
-                    </a>
-                </div>
-                 
+            <label for="usuario">Usuário</label>
+            <input type="text" id="usuario" name="usuario" required autocomplete="username" aria-label="Usuário">
 
-             <!-- Rodapé do card de login -->
-              <div class="card-footer text-center">
-                <small class="text-muted">Sistema Aluguel de Roupa &copy;  <span ]
-                    id="ano-atual"> 2025
-                </span></small>
-              </div>
+            <label for="senha">Senha</label>
+            <input type="password" id="senha" name="senha" minlength="6" required autocomplete="new-password" aria-label="Senha">
+
+            <label for="confirmar_senha">Confirmar Senha</label>
+            <input type="password" id="confirmar_senha" name="confirmar_senha" minlength="6" required autocomplete="new-password" aria-label="Confirmar Senha">
+
+            <label for="perfil">Perfil</label>
+            <select id="perfil" name="perfil" required>
+                <option value="">Selecione</option>
+                <option value="cliente">Cliente</option>
+                <option value="lojista">Lojista</option>
+            </select>
+
+            <div id="campo-senha-admin" style="display:none;">
+                <label for="senha_admin">Senha de Administrador</label>
+                <input type="password" id="senha_admin" name="senha_admin" autocomplete="off">
+            </div>
+
+            <button type="submit">Criar Conta</button>
+        </form>
+        <div class="login-link">
+            Já tem uma conta? <a href="login.html">Entrar</a>
         </div>
     </div>
-   </div>
-
-    
-    
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
-    <!-- Script JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    
-    <!-- Scripts customizados -->
-    <script src="js/scripts.js"></script>
-
     <script>
-      document.addEventListener('DOMContentLoaded', function () {
-    const loginForm = document.getElementById('loginForm');
-    const errorMessage = document.getElementById('errorMessage');
-
-    loginForm.addEventListener('submit', function (e) {
-        e.preventDefault(); // Impede envio padrão
-
-        const username = document.getElementById('username').value.trim();
-        const password = document.getElementById('password').value.trim();
-
-        // Verifica login válido
-        if (
-            (username === 'admin' && password === 'admin123') ||
-            (username === 'usuario' && password === 'user123')
-        ) {
-            window.location.href = 'cadastro.html'; // Redireciona se válido
-        } else {
-            // Exibe mensagem de erro
-            errorMessage.textContent = 'Usuário ou senha inválidos.';
-            errorMessage.classList.remove('d-none');
-        }
+    const perfil = document.getElementById('perfil');
+    const campoSenhaAdmin = document.getElementById('campo-senha-admin');
+    perfil.addEventListener('change', function() {
+      if (this.value === 'lojista') {
+        campoSenhaAdmin.style.display = '';
+        document.getElementById('senha_admin').setAttribute('required', 'required');
+      } else {
+        campoSenhaAdmin.style.display = 'none';
+        document.getElementById('senha_admin').removeAttribute('required');
+      }
     });
-});
+
+    document.querySelector('form').addEventListener('submit', function(e) {
+      const senha = document.getElementById('senha').value;
+      const confirmar = document.getElementById('confirmar_senha').value;
+      if (senha !== confirmar) {
+        alert('As senhas não coincidem!');
+        e.preventDefault();
+        return;
+      }
+      if (perfil.value === 'lojista') {
+        const senhaAdmin = document.getElementById('senha_admin').value;
+        if (senhaAdmin !== 'Senai2DA@2025#7') {
+          alert('Senha de administrador incorreta!');
+          e.preventDefault();
+          return;
+        }
+      }
+    });
     </script>
 </body>
 </html>
